@@ -11,24 +11,24 @@ import AuthForm from '../auth-form/auth-form';
 import * as routes from '../../routes';
 
 class AuthLanding extends React.Component {
-  constructor(props) 
-    super(props) {
-      autoBind.call(this, AuthLanding);
-    }
+  constructor(props) {
+    super(props);
+    autoBind.call(this, AuthLanding);
+  }
   handleLogin(user) {
     return this.props.pDoLogin(user)
-    .then(() => {
-      this.props.history.push(routes.DASHBOARD_ROUTE);
-    })
-    .catch(console.error);
+      .then(() => {
+        this.props.history.push(routes.DASHBOARD_ROUTE);
+      })
+      .catch(console.error); // eslint-disable-line
   }
 
   handleSignup(user) {
     return this.props.pDoSignup(user)
-    .then(() => {
-      this.props.history.push(routes.DASHBOARD_ROUTE);
-    })
-    .catch(console.error);
+      .then(() => {
+        this.props.history.push(routes.DASHBOARD_ROUTE);
+      })
+      .catch(console.error); // eslint-disable-line
   }
 
   render() {
@@ -57,7 +57,7 @@ class AuthLanding extends React.Component {
     return (
       <div className='landing'>
         {location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined }
-        {location.pathname === routes.SIGNUP_ROUTE ? signUpJSX : undefined }
+        {location.pathname === routes.SIGNUP_ROUTE ? signupJSX : undefined }
         {location.pathname === routes.LOGIN_ROUTE ? loginJSX : undefined }
       </div>
     );
@@ -77,7 +77,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
-  pDoLogin: user => dispatch(authActions.loginRequest(user))
+  pDoLogin: user => dispatch(authActions.loginRequest(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLanding);
