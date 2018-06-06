@@ -14,9 +14,9 @@ class AuthForm extends React.Component {
     this.state = emptyState;
     autoBind.call(this, AuthForm);
   }
-  //---------------------------------------------------------------
+
   // Member Functions
-  //---------------------------------------------------------------
+
   handleChange(e) {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -27,9 +27,8 @@ class AuthForm extends React.Component {
     this.props.onComplete(this.state);
     this.setState(emptyState);
   }
-  //---------------------------------------------------------------
+
   // Life-cycle Hooks
-  //---------------------------------------------------------------
 
   render() {
     let { type } = this.props;
