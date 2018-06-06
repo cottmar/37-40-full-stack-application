@@ -38,7 +38,7 @@ class AuthLanding extends React.Component {
       <Link to='/login'> Login to Sluggram </Link>
     </div>;
 
-    const signupJSX = <div>
+    const signUpJSX = <div>
       <h2> Signup! </h2>
       <AuthForm onComplete={this.handleSignup}/>
       <p> Already Have an account?  </p>
@@ -57,7 +57,7 @@ class AuthLanding extends React.Component {
     return (
       <div className='landing'>
         {location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined }
-        {location.pathname === routes.SIGNUP_ROUTE ? signupJSX : undefined }
+        {location.pathname === routes.SIGNUP_ROUTE ? signUpJSX : undefined }
         {location.pathname === routes.LOGIN_ROUTE ? loginJSX : undefined }
       </div>
     );

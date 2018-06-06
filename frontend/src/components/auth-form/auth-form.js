@@ -14,49 +14,52 @@ class AuthForm extends React.Component {
     this.state = emptyState;
     autoBind.call(this, AuthForm);
   }
-
-  //member functions
-
-  handleChange(event) {
-    const { name, value } = event.target;
+  //---------------------------------------------------------------
+  // Member Functions
+  //---------------------------------------------------------------
+  handleChange(e) {
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.onComplete(this.state);
     this.setState(emptyState);
   }
-
-  // Life-cycle hooks
+  //---------------------------------------------------------------
+  // Life-cycle Hooks
+  //---------------------------------------------------------------
 
   render() {
     let { type } = this.props;
 
     type = type === 'login' ? type : 'signup';
 
-    const signupJSX = 
-    <input
-      name='email'
-      placeholder='email'
-      type='email'
-      value={this.state.email}
-      onChange={this.handleChange}
-      />;
+    const signupJSX =
+      <input
+        name='email'
+        placeholder='email'
+        type='email'
+        value={this.state.email}
+        onChange={this.handleChange}
+        />;
 
     const signupRenderedJSX = (type !== 'login') ? signupJSX : undefined;
 
     return (
       <form className='auth-form' onSubmit={this.handleSubmit} >
 
-        <input  
+        <input
           name='username'
-          placholder='username'
+          placeholder='username'
           type='text'
           value={this.state.username}
           onChange={this.handleChange}
           />
+
         {signupRenderedJSX}
+
         <input
           name='password'
           placeholder='password'
@@ -71,7 +74,7 @@ class AuthForm extends React.Component {
   }
 }
 
-AuthForm.PropTypes = {
+AuthForm.propTypes = {
   type: PropTypes.string,
   onComplete: PropTypes.func,
 };
