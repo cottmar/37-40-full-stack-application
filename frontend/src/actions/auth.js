@@ -1,5 +1,7 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
+import { deleteCookie } from '../utils/cookie';
+import { TOKEN_COOKIE_KEY } from '../constants';
 
 // SYNC
 export const setTokenAction = token => ({
@@ -10,6 +12,15 @@ export const setTokenAction = token => ({
 export const removeTokenAction = () => ({
   type: 'TOKEN_REMOVE',
 });
+
+export const removeToken = () => ({
+  type: 'TOKEN_REMOVE',
+});
+
+export const logout = () => {
+  deleteCookie(TOKEN_COOKIE_KEY);
+  return removeToken();
+};
 
 // ASYNC
 export const signupRequest = user => (store) => {
