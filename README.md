@@ -25,6 +25,6 @@ routes.js
 package-lock.json
 package.json
 webpack.common.js
-webpack.dev.js
+webpack.dev.js .
  
 
