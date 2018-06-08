@@ -1,6 +1,6 @@
 ## Full-Stack Auth
 
-The Full-Stack Auth application implements a Login/Signup functionality for a back-end project. I specifically used the Sluggram application, linked below. The application uses React/Redux, as well as Thunk and Reporter Middleware. 
+The Full-Stack Auth application implements a Login/Signup/Logout, and form validation for your sign-up form for a back-end project. I specifically used the Sluggram application, linked below. The application uses React/Redux, as well as Thunk and Reporter Middleware. 
 
 ## Architecture
 
