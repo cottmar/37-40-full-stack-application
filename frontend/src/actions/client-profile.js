@@ -34,6 +34,8 @@ const updateRequest = profile => (store) => {
 
   return superagent.put(`${API_URL}${routes.PROFILE_ROUTE}/${profile._id}`)
     .set('Authorization', `Bearer ${token}`) // HTTP HEADER, STRING
+    .set('Content-Type', 'application/json')
+    .send(profile)
     .then((response) => {
       return store.dispatch(setProfile(response.body));
       // these lines need to be written with full understanding of the back-end
